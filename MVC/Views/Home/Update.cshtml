@@ -1,0 +1,50 @@
+﻿@model Business.Models.ProductModel
+
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    <div class="container">
+        <form method="post" asp-action="Update" class="mt-4 p-4 w-75 mx-auto border shadow-md bg-light">
+            <div class="d-flex flex-row justify-content-between">
+                <h3 class="text-primary">Update Product with Id: @Model.Id</h3>
+                <a asp-action="Index" asp-controller="Home" class="btn btn-primary">Go Back</a>
+            </div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group mb-3" >
+                <label>Title:</label>
+                <input type="text" asp-for="Title" class="form-control" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label>Description:</label>
+                <input type="text" asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label>Price:</label>
+                <input type="number" asp-for="Price" class="form-control" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label>
+                    <input asp-for="IsFeaturedOutput" type="checkbox" />
+                    @Html.DisplayNameFor(model => model.IsFeaturedOutput)
+                </label>
+            </div>
+            <div class="mb-3">
+                <label>
+                    <input asp-for="IsTopRatedOutput" type="checkbox" />
+                    @Html.DisplayNameFor(model => model.IsTopRatedOutput)
+                </label>
+            </div>
+            <div class="mb-3">
+                <label>
+                    <input asp-for="IsNearbyOutput" type="checkbox" />
+                    @Html.DisplayNameFor(model => model.IsNearbyOutput)
+                </label>
+            </div>
+            <button type="submit" class="btn btn-primary">Update</button>
+        </form>
+    </div>
+}
